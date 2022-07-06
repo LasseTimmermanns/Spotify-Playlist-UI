@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
 export class CookieService {
   constructor() {}
 
+  cookieExists() {
+    return this.getCookie("bearer") != "";
+  }
+
   public getCookie(name: string) {
     let ca: Array<string> = document.cookie.split(';');
     let caLen: number = ca.length;
