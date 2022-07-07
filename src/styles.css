@@ -1,8 +1,15 @@
+:root{
+  --primary: #292929;
+  --secondary: #3B3B3B;
+  --background: #4a4a4a;
+  --hover-secondary: #1D1D1D;
+}
+
 html, body{
   margin: 0;
-  background: #4a4a4a;
+  background: var(--background);
   width: 100vw;
   height: 100vh;
   max-width: 100%;
-  overflow:hidden;
 }
+

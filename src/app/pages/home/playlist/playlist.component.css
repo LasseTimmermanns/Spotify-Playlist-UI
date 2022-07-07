@@ -1,0 +1,33 @@
+.container{
+  display: grid;
+  height: 100px;
+  width: 100%;
+  background: var(--secondary);
+  grid-template-columns: 100px calc(100% - 230px) 80px;
+  gap: 20px;
+  grid-template-areas: "cover title";
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cover {
+  grid-area: cover;
+}
+
+.cover img{
+  height: 100px;
+}
+
+.title {
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.information p{
+  margin: 0;
+}

@@ -1,0 +1,58 @@
+.container {
+  display: grid;
+  height: 100px;
+  width: 100%;
+  background: var(--primary);
+  grid-template-columns: 100px calc(100% - 230px) 80px;
+  gap: 20px;
+  grid-template-areas: "cover information duration";
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cover {
+  grid-area: cover;
+}
+
+.cover img{
+  height: 100px;
+}
+
+.information {
+  grid-area: information;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.title {
+  display: flex;
+  align-items: flex-end;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.information p{
+  margin: 0;
+}
+
+.artist{
+  display: flex;
+  align-items: flex-start;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.duration {
+  grid-area: duration;
+  text-align: right;
+  font-size: 24px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.information, .duration{
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
