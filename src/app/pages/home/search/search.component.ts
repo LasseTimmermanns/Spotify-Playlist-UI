@@ -33,7 +33,6 @@ export class SearchComponent implements OnInit {
     return str === null || str.match(/^ *$/) !== null;
   }
 
-
   search(query: string) {
     if(this.isEmptyOrSpaces(query)){
       console.log("Query is not valid");
@@ -41,15 +40,17 @@ export class SearchComponent implements OnInit {
     }
     let bearer = this.cookieService.getCookie("bearer");
     this.removeSongs(false);
-    this.httpClient.get<any>("http://localhost:8080/api/query?bearer=" + bearer + "&query=" + encodeURIComponent(query) + "&limit=" + this.limit).subscribe(data => {
+    let url = "http://localhost:8080/api/query?bearer=" + bearer + "&query=" + encodeURIComponent(query) + "&limit=" + this.limit;
+    console.log(url);
+    this.httpClient.get<any>(url).subscribe(data => {
       for(let i = 0; i < data.length; i++){
-        this.addSong(data[i].title, data[i].duration, data[i].artist, data[i].imgurl, data[i].songid);
+        this.addSong(data[i].title, data[i].duration, data[i].artist, data[i].imgurl, data[i].songid, data[i].link);
       }
       this.removeSongs(true);
     });
   }
 
-  addSong(songTitle : string, songDuration : string, songArtist : string, imgUrl : string, songId : string) : ComponentRef<SongComponent>{
+  addSong(songTitle : string, songDuration : string, songArtist : string, imgUrl : string, songId : string, spotifyLink : string) : ComponentRef<SongComponent>{
     const component : ComponentRef<SongComponent> = this.suggestions.createComponent(SongComponent);
     console.log(songArtist);
     component.instance.songTitle = songTitle;
@@ -57,8 +58,8 @@ export class SearchComponent implements OnInit {
     component.instance.songArtist = songArtist;
     component.instance.imgUrl = imgUrl;
     component.instance.songId = songId;
+    component.instance.spotifyLink = spotifyLink;
     component.instance.listItem = true;
-    component.instance.getIt();
     return component;
   }
 

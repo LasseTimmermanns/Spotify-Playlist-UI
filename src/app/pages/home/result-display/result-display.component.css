@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 900px){
   app-song, app-playlist{
-    width: 80%;
+    width: 80% !important;
   }
 }
 

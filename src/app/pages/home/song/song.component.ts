@@ -1,4 +1,5 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ResultDisplayComponent} from "../result-display/result-display.component";
 
 @Component({
   selector: 'app-song',
@@ -7,20 +8,27 @@ import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 })
 export class SongComponent implements OnInit {
 
-  imgUrl: string = "https://i.scdn.co/image/ab67616d00004851c61fe3be705958234977faaa"
-  songTitle: string = "Homesick"
-  songArtist: string = "Kane Brown"
-  songDuration: string = "3:41"
-  songId: string = ""
-  @Input() listItem : boolean = true;
+  imgUrl: string = "https://i.scdn.co/image/ab67616d00004851c61fe3be705958234977faaa";
+  songTitle: string = "Homesick";
+  songArtist: string = "Kane Brown";
+  songDuration: string = "3:41";
+  songId: string = "";
+  spotifyLink: string = "";
+  listItem : boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {
   }
 
-  getIt() : void{
-    console.log(this.songArtist + " " + this.songTitle);
+  click() : void{
+    if(this.listItem){
+      return this.selectItem();
+    }
+  }
+
+  selectItem() : void{
+    ResultDisplayComponent.instance.changeDisplayedSong(this);
   }
 
 }

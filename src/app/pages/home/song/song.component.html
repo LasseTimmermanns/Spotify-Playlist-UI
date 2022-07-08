@@ -1,4 +1,17 @@
-<div class="container" [ngClass]="listItem ? 'listItem' : 'bigItem'">
+<a href="{{spotifyLink}}" target="_blank" *ngIf="!listItem" style="color: inherit; text-decoration: inherit;">
+  <div class="container" [ngClass]="listItem ? 'listItem' : 'bigItem'" (click)="click()">
+    <div class="cover">
+      <img src="{{imgUrl}}">
+    </div>
+    <div class="information">
+      <div class="title"><p>{{songTitle}}</p></div>
+      <div class="artist"><p>{{songArtist}}</p></div>
+    </div>
+    <div class="duration" *ngIf="!listItem" >{{songDuration}}</div>
+  </div>
+</a>
+
+<div class="container" [ngClass]="listItem ? 'listItem' : 'bigItem'" (click)="click()" *ngIf="listItem">
   <div class="cover">
     <img src="{{imgUrl}}">
   </div>
