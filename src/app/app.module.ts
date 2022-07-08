@@ -37,6 +37,7 @@ const allRoutes: Routes = [
     AppRoutingModule
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SongComponent]
 })
 export class AppModule { }

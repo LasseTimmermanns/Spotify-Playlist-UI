@@ -12,4 +12,12 @@ export class HttpService {
     return this.httpClient.post(url, body, headers);
   }
 
+  get(url : string, options? : object) : any{
+    if(options){
+      return this.httpClient.get(url, options);
+    }else{
+      return this.httpClient.get(url, {});
+    }
+  }
+
 }

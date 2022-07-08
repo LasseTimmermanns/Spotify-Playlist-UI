@@ -1,5 +1,14 @@
-<p class="description">Search for Playlist</p>
+
+<p class="description">Search for Song</p>
 <form>
-  <input type="text" placeholder="Query">
-  <input type="submit" value="Send">
+  <input #searchInput type="text" placeholder="Query" (keyup)="search(searchInput.value)">
+  <input type="button" (click)="search(searchInput.value)" value="Send">
 </form>
+
+<div class="suggestions">
+  <div #suggestions style="display: none"></div>
+  <!--<app-song [listItem]=true></app-song>
+  <app-song [listItem]=true></app-song>
+  <app-song [listItem]=true></app-song>
+  <app-song [listItem]=true></app-song>-->
+</div>

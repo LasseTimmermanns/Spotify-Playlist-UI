@@ -5,7 +5,22 @@ input[type="text"]{
   border-radius: 10px 0 0 10px;
 }
 
-input[type="submit"]{
+@media screen and (min-width: 900px){
+  .suggestions{
+    width: 80%;
+    position: absolute;
+  }
+}
+
+.suggestions{
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 25px));
+  column-gap: 30px;
+  row-gap: 10px;
+}
+
+input[type="button"]{
   border-radius: 0 10px 10px 0;
   width: 120px;
   max-width: 200px;

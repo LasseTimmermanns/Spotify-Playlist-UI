@@ -7,14 +7,24 @@
   flex-direction: column;
 }
 
+@media screen and (min-width: 900px){
+  app-song, app-playlist{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 900px){
+  app-song, app-playlist{
+    width: 100%;
+  }
+}
+
 app-song{
   display: block;
-  width: 80%;
   margin-bottom: 40px;
 }
 
 app-playlist{
   display: block;
-  width: 80%;
   margin-bottom: 20px;
 }

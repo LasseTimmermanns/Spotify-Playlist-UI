@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-song',
@@ -11,10 +11,16 @@ export class SongComponent implements OnInit {
   songTitle: string = "Homesick"
   songArtist: string = "Kane Brown"
   songDuration: string = "3:41"
+  songId: string = ""
+  @Input() listItem : boolean = true;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+  }
+
+  getIt() : void{
+    console.log(this.songArtist + " " + this.songTitle);
   }
 
 }

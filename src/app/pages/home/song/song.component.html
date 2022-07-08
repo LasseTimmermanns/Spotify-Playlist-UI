@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngClass]="listItem ? 'listItem' : 'bigItem'">
   <div class="cover">
     <img src="{{imgUrl}}">
   </div>
@@ -6,5 +6,5 @@
     <div class="title"><p>{{songTitle}}</p></div>
     <div class="artist"><p>{{songArtist}}</p></div>
   </div>
-  <div class="duration">{{songDuration}}</div>
+  <div class="duration" *ngIf="!listItem" >{{songDuration}}</div>
 </div>

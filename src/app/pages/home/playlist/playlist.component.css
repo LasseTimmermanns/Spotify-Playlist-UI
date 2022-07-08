@@ -1,7 +1,6 @@
 .container{
   display: grid;
   height: 100px;
-  width: 100%;
   background: var(--secondary);
   grid-template-columns: 100px calc(100% - 230px) 80px;
   gap: 20px;

@@ -1,9 +1,7 @@
 .container {
+  position: relative;
   display: grid;
-  height: 100px;
-  width: 100%;
-  background: var(--primary);
-  grid-template-columns: 100px calc(100% - 230px) 80px;
+  height: 100%;
   gap: 20px;
   grid-template-areas: "cover information duration";
   padding: 10px;
@@ -11,11 +9,14 @@
 }
 
 .cover {
+  display: flex;
+  align-self: center;
   grid-area: cover;
+  height: 95%;
 }
 
 .cover img{
-  height: 100px;
+  height: var(--cover-size);
 }
 
 .information {
@@ -27,7 +28,7 @@
 .title {
   display: flex;
   align-items: flex-end;
-  font-size: 32px;
+  font-size: var(--title-size);
   font-weight: 400;
 }
 
@@ -38,7 +39,7 @@
 .artist{
   display: flex;
   align-items: flex-start;
-  font-size: 24px;
+  font-size: var(--artist-size);
   font-weight: 300;
 }
 
@@ -56,3 +57,29 @@
   font-family: 'Roboto', sans-serif;
   color: white;
 }
+
+.listItem.container{
+  grid-template-columns: var(--cover-size) calc(100% - var(--cover-size) - 40px);
+}
+
+.bigItem.container{
+  grid-template-columns: var(--cover-size) calc(100% - var(--cover-size) - 80px - 40px) 80px;
+}
+
+.listItem{
+  --artist-size: 14px;
+  --title-size: 18px;
+  --cover-size: 64px;
+  background: var(--secondary);
+  width: 100%;
+  height: 70px
+}
+
+.bigItem{
+  --artist-size: 24px;
+  --title-size: 32px;
+  --cover-size: 100px;
+  background: var(--primary);
+}
+
+
