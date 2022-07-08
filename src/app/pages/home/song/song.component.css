@@ -1,24 +1,25 @@
 .container {
   position: relative;
   display: grid;
-  height: 100%;
+  height: var(--height);
   width: 100%;
-  gap: 20px;
-  grid-template-areas: "cover information duration";
+  gap: 15px;
+  grid-template-areas: "cover information";
   padding: 10px;
   border-radius: 10px;
   overflow: hidden;
+  grid-template-columns: var(--height) calc(100% - var(--height) - 15px);
 }
 
 .cover {
   display: flex;
-  align-self: center;
+  flex-direction: column;
   grid-area: cover;
-  height: 95%;
+  height: var(--height);
 }
 
 .cover img{
-  height: var(--cover-size);
+  width: 100%;
 }
 
 .information {
@@ -60,27 +61,20 @@
   color: white;
 }
 
-.listItem.container{
-  grid-template-columns: var(--cover-size) calc(100% - var(--cover-size) - 40px);
-}
-
-.bigItem.container{
-  grid-template-columns: var(--cover-size) calc(100% - var(--cover-size) - 80px - 40px) 80px;
-}
 
 .listItem{
   --artist-size: 14px;
   --title-size: 18px;
-  --cover-size: 64px;
   background: var(--secondary);
   width: 100%;
-  height: 70px;
+  --height: 64px;
 }
 
 .bigItem{
-  --artist-size: 24px;
-  --title-size: 32px;
+  --artist-size: 18px;
+  --title-size: 24px;
   --cover-size: 100px;
+  --height: 106px;
   background: var(--primary);
 }
 
